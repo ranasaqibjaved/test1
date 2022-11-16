@@ -21,23 +21,21 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Route::get('/export_scv', [StockController::class, 'export_scv'])->name('export_scv');
-
-Route::post('/ImportCsv', [ImportCsvController::class, 'ImportCsv'])->name('ImportCsv');
-
-
-Route::resource('stock', StockController::class);
 
 
 
-// teask 3
-Route::view('test', 'tests.index')->name('test');
-Route::get('test1', [TestController::class, 'test1'])->name('test1');
-Route::get('test2', [TestController::class, 'test2'])->name('test2');
-Route::get('test3', [TestController::class, 'test3'])->name('test3');
 
-Route::get('test4', [TestController::class, 'test4'])->name('test4');
+Route::group(['middleware' => ['LoggedIn']], function () {
+    Auth::routes();
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::get('/export_scv', [StockController::class, 'export_scv'])->name('export_scv');
+    Route::post('/ImportCsv', [ImportCsvController::class, 'ImportCsv'])->name('ImportCsv');
+    Route::resource('stock', StockController::class);
+    // teask 3
+    Route::view('test', 'tests.index')->name('test');
+    Route::get('test1', [TestController::class, 'test1'])->name('test1');
+    Route::get('test2', [TestController::class, 'test2'])->name('test2');
+    Route::get('test3', [TestController::class, 'test3'])->name('test3');
+
+    // Route::get('test4', [TestController::class, 'test4'])->name('test4');
+});
