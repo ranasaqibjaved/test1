@@ -8,9 +8,10 @@ use Illuminate\Http\Request;
 use App\Imports\StockImport;
 use Maatwebsite\Excel\Facades\Excel;
 
-class ImportCsvController extends Controller 
+class ImportCsvController extends Controller
 {
     // use Queueable;
+    //just checking
     public function ImportCsv(Request $request)
     {
         $request->validate([
