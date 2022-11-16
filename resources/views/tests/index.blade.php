@@ -11,23 +11,30 @@
 </head>
 
 <body>
+    <!-- <div class="container"> -->
     <div class="container">
-        <h1 class="text-center my-3">Please Click Below any one</h1>
+
+        <div class="row">
+            <div class="col-md-12  text-right my-3">
+                <h1 class="text-center my-3">Please Click Below any one</h1>
+                <a href="{{route('home')}}" class="btn btn-success float-end me-5"> Back</a>
+            </div>
+        </div>
         <div class="d-flex justify-content-between mx-5 border p-3">
             <p> Select all records from Table 1 and a column to show count of their records in table 2</p>
             <a href="{{route('test1')}}" class="btn btn-success" style="text-decoration: none;">click for test 1 </a>
         </div>
         <div class="d-flex justify-content-between mx-5 border p-3">
             <p>Select all records from table 1 whose record does not exist in table 2</p>
-
             <a href="{{route('test2')}}" class="btn btn-success" style="text-decoration: none;">click for test 2 </a>
         </div>
         <div class="d-flex justify-content-between mx-5 border p-3">
             <p>Select all duplicate records in table 2 and show a counter of their iteration in that table </p>
-
             <a href="{{route('test3')}}" class="btn btn-success" style="text-decoration: none;">click for test 3</a>
         </div>
     </div>
+
+    <!-- </div> -->
 </body>
 
 </html>

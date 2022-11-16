@@ -13,9 +13,18 @@
                         {{ session('status') }}
                     </div>
                     @endif
-                    <h1>Stock</h1>
-                    <a href="{{route('stock.index')}}" class="btn btn-sucess"> <button>View Stock</button></a>
+                    <div class="d-flex justify-content-between mx-5 border p-3">
+                        <p>Stock</p>
+                        <a href="{{route('stock.index')}}" class="btn btn-success" style="text-decoration: none;">View Stock</a>
+                    </div>
+
+                    <div class="d-flex justify-content-between mx-5 border p-3">
+                        <p>Tests</p>
+                        <a href="{{route('test')}}" class="btn btn-success" style="text-decoration: none;">Tests</a>
+                    </div>
                 </div>
+
+
             </div>
         </div>
     </div>

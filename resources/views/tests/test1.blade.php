@@ -37,20 +37,24 @@
 
 <body>
 
-
     <div class="container">
         <h1 style="text-align: center;">Test1</h1>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12  text-right my-3">
-                    <a class="btn btn-success justi" href="{{route('stock.create')}}">Create Stock</a>
-                    <a class="btn btn-danger float-end" href="{{ route('export_scv') }}">Download Stock csv</a>
-                </div>
+
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12  text-right my-3">
+                <!-- <a class="btn btn-success" href="{{route('stock.create')}}">Create Stock</a> -->
+                <!-- <a class="btn btn-danger float-end" href="{{ route('export_scv') }}">Download Stock csv</a> -->
+                <a href="{{route('test')}}" class="btn btn-success float-start"> Back</a>
+
             </div>
         </div>
-        @if(session()->has('message'))
-        <p class="alert {{ session('alert-class') }}">{{ session('message') }}</p>
-        @endif
+    </div>
+    @if(session()->has('message'))
+    <p class="alert {{ session('alert-class') }}">{{ session('message') }}</p>
+    @endif
+    <div class="container">
         <table class="table table-bordered data-table">
             <thead>
                 <tr>

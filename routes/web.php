@@ -35,7 +35,7 @@ Route::resource('stock', StockController::class);
 
 
 // teask 3
-Route::view('test', 'tests.index');
+Route::view('test', 'tests.index')->name('test');
 Route::get('test1', [TestController::class, 'test1'])->name('test1');
 Route::get('test2', [TestController::class, 'test2'])->name('test2');
 Route::get('test3', [TestController::class, 'test3'])->name('test3');

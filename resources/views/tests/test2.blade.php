@@ -43,8 +43,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12  text-right my-3">
-                    <a class="btn btn-success justi" href="{{route('stock.create')}}">Create Stock</a>
-                    <a class="btn btn-danger float-end" href="{{ route('export_scv') }}">Download Stock csv</a>
+                    <!-- <a class="btn btn-success justi" href="{{route('stock.create')}}">Create Stock</a> -->
+                    <!-- <a class="btn btn-danger float-end" href="{{ route('export_scv') }}">Download Stock csv</a> -->
+                    <a href="{{route('test')}}" class="btn btn-success float-start"> Back</a>
                 </div>
             </div>
         </div>
