@@ -37,5 +37,5 @@ Route::group(['middleware' => ['LoggedIn']], function () {
     Route::get('test2', [TestController::class, 'test2'])->name('test2');
     Route::get('test3', [TestController::class, 'test3'])->name('test3');
 
-    // Route::get('test4', [TestController::class, 'test4'])->name('test4');
+    Route::get('test4', [TestController::class, 'test4'])->name('test4');
 });

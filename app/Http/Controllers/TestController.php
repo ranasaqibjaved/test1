@@ -2,24 +2,87 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Stock;
 use App\Models\User;
 use App\Models\UsersAddress;
 use Illuminate\Http\Request;
 use DataTables;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 
 class TestController extends Controller
 {
     public function test4(Request $request)
     {
+        // return  DB::table('stocks')->where('id', 1)->get(['id as ids']);
+        // $data = Stock::select("variant", "id")->get();
+
+
+        // 'SELECT i.Container
+        // FROM Inventory i 
+        // WHERE i.Sku in (S1, S2)
+        // GROUP BY i.Container
+        // HAVING COUNT(i.Sku) = 2;'
+
+
+
+
+        // $arr =  Stock::select('variant', 'id')
+        //     ->groupBy('variant')
+        //     ->get();
+
+        $arr =  Stock::select('variant', 'id')->get();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        return  Stock::select("id", "variant", DB::raw('count(*) as counts '))
+            ->groupBy('variant')
+            ->get();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // return json_decode($data);
+
+
+
 
         // $data = UsersAddress::where('user_id', 0)->count('user_id');
         // dd($data->toArray());
 
-        $data1 = DB::table('users_addresses')
+        DB::table('users_addresses')
             ->select("user_id", DB::raw('count(*) as counts'))
             ->having('counts', '>', 1)
-            // ->join('users', 'users.id', '=', 'users_addresses.user_id')
             ->groupBy('user_id')
             ->get();
 
