@@ -22,6 +22,11 @@
                         <p>Tests</p>
                         <a href="{{route('test')}}" class="btn btn-success" style="text-decoration: none;">Tests</a>
                     </div>
+
+                    <div class="d-flex justify-content-between mx-5 border p-3">
+                        <p>Show Queue Jobs</p>
+                        <a href="{{route('showjob')}}" class="btn btn-success" style="text-decoration: none;">View Jobs</a>
+                    </div>
                 </div>
 
             </div>

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ImportCsvController;
+use App\Http\Controllers\JobController;
 use App\Http\Controllers\StockController;
 use App\Http\Controllers\TestController;
 use Illuminate\Support\Facades\Auth;
@@ -38,4 +39,7 @@ Route::group(['middleware' => ['LoggedIn']], function () {
     Route::get('test3', [TestController::class, 'test3'])->name('test3');
 
     Route::get('test4', [TestController::class, 'test4'])->name('test4');
+
+    Route::get('showJobs', [JobController::class, 'showJobs'])->name('showJobs');
+    Route::view('showjob', 'showjob')->name('showjob');
 });
