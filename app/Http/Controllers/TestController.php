@@ -34,6 +34,20 @@ class TestController extends Controller
         $arr =  Stock::select('variant', 'id')->get();
 
 
+        // $data1 = DB::table('users_addresses')
+        //     ->join('users', 'users.id', '=', 'users_addresses.user_id')
+        //     ->get();
+
+
+        $data1 = DB::table('users_addresses')
+            ->select("user_id", "address", DB::raw('count(*) as count'))
+            ->having('count', '>', 1)
+            ->groupBy('user_id')
+            // ->join('users', 'users.id', '=', 'users_addresses.user_id')
+            ->get();
+
+
+        return ($data1->toArray());
 
 
 
@@ -41,16 +55,20 @@ class TestController extends Controller
 
 
 
-
+        $d =  Stock::select('variant', 'id', DB::raw('count(*) as counts '))->groupBy('variant')->get();
+        return $d;
 
 
 
 
         return  Stock::select("id", "variant", DB::raw('count(*) as counts '))
             ->groupBy('variant')
+            ->where(function ($query) {
+                $query->select(DB::raw(1))
+                    ->from('stocks')
+                    ->whereColumn('variant', 'users.id');
+            })
             ->get();
-
-
 
 
 
@@ -147,13 +165,15 @@ class TestController extends Controller
     public function test3(Request $request)
     {
         if ($request->ajax()) {
-            $data = DB::table('users_addresses')
-                ->select("user_id", DB::raw('count(*) as count'))
-                ->having('count', '>', 1)
-                // ->join('users', 'users.id', '=', 'users_addresses.user_id')
-                ->groupBy('user_id')
-                ->get();
+            // $data = DB::table('users_addresses')
+            //     ->select("user_id", "address", DB::raw('count(*) as count'))
+            //     ->having('count', '>', 1)
+            //     ->groupBy('user_id')
+            //     ->get();
             // dd($data->toArray());
+
+
+            $data = User::select('id', 'name', 'email')->withCount('UsersAddress')->having('users_address_count', '>', 1)->get();
             return DataTables::of($data)->addIndexColumn()->make(true);
         }
         return view('tests.test3');

@@ -125,6 +125,6 @@ class StockController extends Controller
 
     public function export_scv()
     {
-        return Excel::download(new StockExport, 'stock.csv');
+        return Excel::download(new StockExport, 'stock.xlsx');
     }
 }

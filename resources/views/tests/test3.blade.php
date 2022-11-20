@@ -55,10 +55,15 @@
         <table class="table table-bordered data-table">
             <thead>
                 <tr>
-                    <th>User ID</th>
-                    <th>Count</th>
-                    <!-- <th>Email</th> -->
-                    <!-- <th width="100px">Count</th> -->
+                    <!-- <th>User ID</th>
+                    <th>Address</th>
+                    <th>Count</th> -->
+
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th width="100px">Count</th>
+
                 </tr>
             </thead>
             <tbody>
@@ -110,26 +115,48 @@
 
             //From Here database table
             ajax: "{{ route('test3') }}",
+            // columns: [{
+            //         data: 'user_id',
+            //         name: 'user_id'
+            //     },
+            //     {
+            //         data: 'address',
+            //         name: 'address'
+            //     },
+            //     {
+            //         data: 'count',
+            //         name: 'count'
+            //     },
+            //     // {
+            //     //     data: 'users_address_count',
+            //     //     name: 'users_address_count',
+            //     //     orderable: false,
+            //     //     searchable: false
+            //     // },
+            // ]
+
             columns: [{
-                    data: 'user_id',
-                    name: 'user_id'
+                    data: 'id',
+                    name: 'id'
                 },
-                // {
-                //     data: 'name',
-                //     name: 'name'
-                // },
                 {
-                    data: 'count',
-                    name: 'count'
+                    data: 'name',
+                    name: 'name'
                 },
-                // {
-                //     data: 'users_address_count',
-                //     name: 'users_address_count',
-                //     orderable: false,
-                //     searchable: false
-                // },
+                {
+                    data: 'email',
+                    name: 'email'
+                },
+                {
+                    data: 'users_address_count',
+                    name: 'users_address_count',
+                    orderable: false,
+                    searchable: false
+                },
             ]
         });
+
+
     });
 </script>
 
